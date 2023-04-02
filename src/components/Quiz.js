@@ -27,7 +27,7 @@ export default function Quiz() {
             selectedOptions: []
         })
         createAPIEndpoint(ENDPOINTS.question)
-            .fetch() 
+            .fetch()
             .then(res => {
                 setQns(res.data)
                 startTimer()

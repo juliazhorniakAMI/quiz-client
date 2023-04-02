@@ -1,11 +1,11 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import { Accordion, AccordionDetails, AccordionSummary, CardMedia, Chip, List, ListItem, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { BASE_URL } from '../api';
 import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
-import { red, green,grey } from '@mui/material/colors';
+import { red, green, grey } from '@mui/material/colors';
 
-export default function Answer({qnAnswers}) {
+export default function Answer({ qnAnswers }) {
     const [expanded, setExpanded] = React.useState(false);
 
     const handleChange = (panel) => (event, isExpanded) => {
@@ -17,10 +17,10 @@ export default function Answer({qnAnswers}) {
         if ([qna.answer, qna.selected].includes(idx)) {
             return { sx: { color: qna.answer == idx ? green[500] : red[500] } }
         }
-    } 
-    
-  return (
-    <Box sx={{ mt: 5, width: '100%', maxWidth: 640, mx: 'auto' }}>
+    }
+
+    return (
+        <Box sx={{ mt: 5, width: '100%', maxWidth: 640, mx: 'auto' }}>
             {
                 qnAnswers.map((item, j) => (<Accordion
                     disableGutters
@@ -61,5 +61,5 @@ export default function Answer({qnAnswers}) {
             }
 
         </Box >
-  )
+    )
 }
