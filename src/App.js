@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import './App.css';
 import Authenticate from './components/Authenticate';
 import Layout from './components/Layout';
@@ -10,15 +11,15 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path='/' element={<Login />} />
         <Route element={<Authenticate />}>
-          <Route path="/" element={<Layout />}>
-            <Route path="/quiz" element={<Quiz />} />
-            <Route path="/result" element={<Result />} />
+          <Route path='/' element={<Layout />}>
+            <Route path='/quiz' element={<Quiz />} />
+            <Route path='/result' element={<Result />} />
           </Route>
         </Route>
       </Routes>
-    </BrowserRouter >
+    </BrowserRouter>
   );
 }
 
