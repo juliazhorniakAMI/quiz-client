@@ -12,7 +12,7 @@ import { Box } from '@mui/system';
 import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
 import { red, green, grey } from '@mui/material/colors';
 
-import { BASE_URL } from '../api';
+import { getImageUrl } from '../api';
 
 export default function Answer({ qnAnswers }) {
   const [expanded, setExpanded] = React.useState(false);
@@ -53,7 +53,7 @@ export default function Answer({ qnAnswers }) {
             {item.imageName ? (
               <CardMedia
                 component='img'
-                image={BASE_URL + 'images/' + item.imageName}
+                image={getImageUrl(item.imageName)}
                 sx={{ m: '10px auto', width: 'auto' }}
               />
             ) : null}

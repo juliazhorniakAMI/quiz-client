@@ -11,7 +11,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { green } from '@mui/material/colors';
 
-import { createAPIEndpoint, ENDPOINTS } from '../api';
+import { answersAPI, participantsAPI } from '../api';
 import { getFormatedTime } from '../helper';
 import useStateContext from '../hooks/useStateContext';
 
@@ -26,7 +26,7 @@ export default function Result() {
 
   useEffect(() => {
     const ids = context.selectedOptions.map((x) => x.qnId);
-    createAPIEndpoint(ENDPOINTS.getAnswers)
+    answersAPI
       .post(ids)
       .then((res) => {
         const qna = context.selectedOptions.map((x) => ({
@@ -55,7 +55,7 @@ export default function Result() {
   };
 
   const submitScore = () => {
-    createAPIEndpoint(ENDPOINTS.participant)
+    participantsAPI
       .put(context.participantId, {
         participantId: context.participantId,
         score: score,

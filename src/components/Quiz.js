@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 import { useNavigate } from 'react-router';
 
-import { createAPIEndpoint, ENDPOINTS, BASE_URL } from '../api';
+import { questionsAPI, getImageUrl } from '../api';
 import useStateContext from '../hooks/useStateContext';
 import { getFormatedTime } from '../helper';
 
@@ -36,7 +36,7 @@ export default function Quiz() {
       timeTaken: 0,
       selectedOptions: [],
     });
-    createAPIEndpoint(ENDPOINTS.question)
+    questionsAPI
       .fetch()
       .then((res) => {
         setQns(res.data);
@@ -88,7 +88,7 @@ export default function Quiz() {
       {qns[qnIndex].imageName != null ? (
         <CardMedia
           component='img'
-          image={BASE_URL + 'images/' + qns[qnIndex].imageName}
+          image={getImageUrl(qns[qnIndex].imageName)}
           sx={{ width: 'auto', m: '10px auto' }}
         />
       ) : null}
