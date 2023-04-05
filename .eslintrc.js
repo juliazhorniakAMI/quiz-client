@@ -21,6 +21,7 @@ module.exports = {
       },
     ],
     'jsx-quotes': ['error', 'prefer-single'],
+    'react-hooks/exhaustive-deps': 'off',
     'no-console': ['error', { allow: ['warn', 'error'] }],
   },
 };

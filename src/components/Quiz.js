@@ -43,7 +43,7 @@ export default function Quiz() {
         startTimer();
       })
       .catch((err) => {
-        console.log(err);
+        console.error(err);
       });
 
     return () => {
@@ -66,7 +66,7 @@ export default function Quiz() {
     }
   };
 
-  return qns.length != 0 ? (
+  return qns.length !== 0 ? (
     <Card
       sx={{
         maxWidth: 640,

@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
   CardMedia,
-  Chip,
   List,
   ListItem,
   Typography,
@@ -24,7 +23,7 @@ export default function Answer({ qnAnswers }) {
 
   const markCorrectOrNot = (qna, idx) => {
     if ([qna.answer, qna.selected].includes(idx)) {
-      return { sx: { color: qna.answer == idx ? green[500] : red[500] } };
+      return { sx: { color: qna.answer === idx ? green[500] : red[500] } };
     }
   };
 
@@ -41,7 +40,7 @@ export default function Answer({ qnAnswers }) {
             expandIcon={
               <ExpandCircleDownIcon
                 sx={{
-                  color: item.answer == item.selected ? green[500] : red[500],
+                  color: item.answer === item.selected ? green[500] : red[500],
                 }}
               />
             }

@@ -21,10 +21,10 @@ const getFreshModel = () => ({
 });
 
 export default function Login() {
-  const { context, setContext, resetContext } = useStateContext();
+  const { setContext, resetContext } = useStateContext();
   const navigate = useNavigate();
 
-  const { values, setValues, errors, setErrors, handleInputChange } =
+  const { values, errors, setErrors, handleInputChange } =
     useForm(getFreshModel);
 
   useEffect(() => {
@@ -40,15 +40,15 @@ export default function Login() {
           setContext({ participantId: res.data.participantId });
           navigate('/quiz');
         })
-        .catch((err) => console.log(err));
+        .catch((err) => console.error(err));
   };
 
   const validate = () => {
     let temp = {};
     temp.email = /\S+@\S+\.\S+/.test(values.email) ? '' : 'Email is not valid.';
-    temp.name = values.name != '' ? '' : 'This field is required.';
+    temp.name = values.name !== '' ? '' : 'This field is required.';
     setErrors(temp);
-    return Object.values(temp).every((x) => x == '');
+    return Object.values(temp).every((x) => x === '');
   };
 
   return (
